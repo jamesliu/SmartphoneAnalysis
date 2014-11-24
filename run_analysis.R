@@ -99,7 +99,7 @@ Xys <- cbind(mean_std_X, activity, subject)
 
 ### 4. Appropriately labels the data set with descriptive variable names.
 # head(mean_std_def)
-# V1                V2
+#  featureId featureName
 # 1  1 tBodyAcc-mean()-X
 # 2  2 tBodyAcc-mean()-Y
 # 3  3 tBodyAcc-mean()-Z
