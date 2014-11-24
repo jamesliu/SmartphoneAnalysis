@@ -10,9 +10,9 @@ It performs the following steps:
 
 The details of run_analysis.R are as following. Please read comments(##) for the explanation about what run_analysis.R did and comments(#) for data output
 
-# 1. Merges the training and the test sets to create one data set.
+## 1. Merges the training and the test sets to create one data set.
 
-## Merge train and test features by rows
+### Merge train and test features by rows
 Xtrain <- read.table("train/X_train.txt")
 #### dim(Xtrain)
 #### [1] 7352  561
@@ -23,7 +23,7 @@ X <- rbind(Xtrain, Xtest)
 #### dim(X)
 #### [1] 10299   561
 
-## Merge train and test activities by rows
+### Merge train and test activities by rows
 ytrain <- read.table("train/y_train.txt")
 #### dim(ytrain)
 #### [1] 7352    1
@@ -34,7 +34,7 @@ y <- rbind(ytrain, ytest)
 #### dim(y)
 #### [1] 10299     1
 
-## Merge train and test subjects by rows
+### Merge train and test subjects by rows
 subjecttrain <- read.table("train/subject_train.txt")
 #### dim(subjecttrain)
 #### [1] 7352    1
@@ -47,12 +47,12 @@ names(subject) <- c("subject")
 #### dim(subject)
 #### [1] 10299     1
 
-## Merge features, activities and subjects by columns
+### Merge features, activities and subjects by columns
 Xys <- cbind(X, y, subject)
 #### dim(Xys)
 #### [1] 10299   563
 
-# 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
+## 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
 
 #### Load feature definition from features.txt
 feature_def <- read.table("features.txt")
@@ -81,7 +81,7 @@ mean_std_X <- X[, mean_std_def$featureId]
 #### Merge extracted features(mean, std), activities and subjects by columns
 Xys <- cbind(mean_std_X, y, subject)
 
-# 3. Uses descriptive activity names to name the activities in the data set
+## 3. Uses descriptive activity names to name the activities in the data set
 
 activity_label <- read.table("activity_labels.txt")
 #### set column names
@@ -109,7 +109,7 @@ Xys <- cbind(mean_std_X, activity, subject)
 #### 2 -0.9958539 -0.9963995 STANDING         1
 #### 3 -0.9950305 -0.9951274 STANDING         1
 
-# 4. Appropriately labels the data set with descriptive variable names.
+## 4. Appropriately labels the data set with descriptive variable names.
 #### head(mean_std_def)
 #### featureId   featureName 
 #### 1  1 tBodyAcc-mean()-X
@@ -119,7 +119,7 @@ Xys <- cbind(mean_std_X, activity, subject)
 #### 5  5  tBodyAcc-std()-Y
 #### 6  6  tBodyAcc-std()-Z
 
-## mean_std_def $featureId $featureName: 66 feature names
+### mean_std_def $featureId $featureName: 66 feature names
 #### dim(mean_std_def)
 #### [1] 66  2
 
@@ -127,7 +127,7 @@ colnames(mean_std_X) <- unlist(mean_std_def$featureName)
 colnames(y) <- c("activity")
 colnames(subject) <- c("subject")
 
-## Xys: 68 columns: 66 features + 1 activity + 1 subject
+### Xys: 68 columns: 66 features + 1 activity + 1 subject
 Xys <- cbind(mean_std_X, activity, subject)
 
 #### dim(Xys)
@@ -142,7 +142,7 @@ Xys <- cbind(mean_std_X, activity, subject)
 #### [64] "fBodyBodyGyroMag-std()"      "fBodyBodyGyroJerkMag-mean()" "fBodyBodyGyroJerkMag-std()" 
 #### [67] "activity"                    "subject"          
 
-# 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+## 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 group_by(Xys, subject, activity) %>% summarise_each(funs(mean)) %>% write.table(file="result.txt", row.name=FALSE)
 
