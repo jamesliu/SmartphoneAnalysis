@@ -72,12 +72,12 @@ names(feature_def) <- c("featureId", "featureName")
 mean_std_def <- feature_def[grepl("mean()", feature_def$featureName, fixed=TRUE) | grepl("std()", feature_def$featureName, fixed=TRUE),]
 #### head(mean_std_def)
 ####  featureId  featureName
-#### 1  1 tBodyAcc-mean()-X
-#### 2  2 tBodyAcc-mean()-Y
-#### 3  3 tBodyAcc-mean()-Z
-#### 4  4  tBodyAcc-std()-X
-#### 5  5  tBodyAcc-std()-Y
-#### 6  6  tBodyAcc-std()-Z
+####   1 tBodyAcc-mean()-X
+####   2 tBodyAcc-mean()-Y
+####   3 tBodyAcc-mean()-Z
+####   4  tBodyAcc-std()-X
+####   5  tBodyAcc-std()-Y
+####   6  tBodyAcc-std()-Z
 
 #### Extract only the measurements on the mean and standard deviation on X by column id
 mean_std_X <- X[, mean_std_def$featureId]
@@ -92,12 +92,12 @@ activity_label <- read.table("activity_labels.txt")
 colnames(activity_label) <- c("activityId", "activityName")
 #### head(activity_label)
 ####   activityId    activityName
-#### 1  1            WALKING
-#### 2  2   WALKING_UPSTAIRS
-#### 3  3 WALKING_DOWNSTAIRS
-#### 4  4            SITTING
-#### 5  5           STANDING
-#### 6  6             LAYING
+####   1            WALKING
+####   2   WALKING_UPSTAIRS
+####   3 WALKING_DOWNSTAIRS
+####   4            SITTING
+####   5           STANDING
+####   6             LAYING
 
 #### Look up activity id in activity_label$V1 and get the descriptive activity name from activity_lable$V2 
 #### Assing to activity
@@ -109,19 +109,19 @@ Xys <- cbind(mean_std_X, activity, subject)
 #### Peeking the result
 #### head(Xys[,65:68], n=3)
 ####  V542        V543       activity     subject
-#### 1 -0.9919904 -0.9906975 STANDING         1
-#### 2 -0.9958539 -0.9963995 STANDING         1
-#### 3 -0.9950305 -0.9951274 STANDING         1
+####  -0.9919904 -0.9906975 STANDING         1
+####  -0.9958539 -0.9963995 STANDING         1
+####  -0.9950305 -0.9951274 STANDING         1
 
 ## 4. Appropriately labels the data set with descriptive variable names.
 #### head(mean_std_def)
 #### featureId   featureName 
-#### 1  1 tBodyAcc-mean()-X
-#### 2  2 tBodyAcc-mean()-Y
-#### 3  3 tBodyAcc-mean()-Z
-#### 4  4  tBodyAcc-std()-X
-#### 5  5  tBodyAcc-std()-Y
-#### 6  6  tBodyAcc-std()-Z
+####   1 tBodyAcc-mean()-X
+####   2 tBodyAcc-mean()-Y
+####   3 tBodyAcc-mean()-Z
+####   4  tBodyAcc-std()-X
+####   5  tBodyAcc-std()-Y
+####   6  tBodyAcc-std()-Z
 
 ### mean_std_def $featureId $featureName: 66 feature names
 #### dim(mean_std_def)
