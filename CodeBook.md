@@ -6,6 +6,12 @@ James Liu
 
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.
 
+Initially, there were 561 variables and 10299 observations for the merged data from trainging data and test data.. 
+According to the assignement requirements, only variables containing means and standard deviations were chosen to create a new dataset.
+The dataset was combined with the features.txt file to get the string names for variables. This resulted in 66 variables for means and standard deviation together and 10299 observations.
+By adding subject and activity, the outcome was a dataset with 68 variables and 10299 observations.
+Finally, all variables were aggregated by means for each combination of the subject and activity.
+
 The dataset includes the following files:
 =========================================
 - 'CodeBook.md'
