@@ -1,6 +1,5 @@
 ==================================================================
-Smartphone Analysis
-Version 1.0
+Smartphone Analysis Version 1.0
 ==================================================================
 James Liu
 ==================================================================
@@ -11,7 +10,7 @@ The dataset includes the following files:
 =========================================
 - 'CodeBook.md'
 - 'README.md': Explains how run_analysis.R works
-- 'result.txt': A tidy data set with the average of each variable for each activity and each subject.
+- 'result.txt': A tidy data set with the average of each variable for each activity and each subject
 - 'run_analysis.R': the script which reads training and test data and extracts only the measurements on the mean and standard deviation, name the activities, label dataset with descriptive variable names and generate tidy data set with the average of each variable for each activity and subject in result.txt
 ========================================
 
